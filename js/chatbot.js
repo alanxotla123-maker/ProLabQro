@@ -3,7 +3,10 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="chatbot-container">
             <div class="chatbot-window" id="chatbotWindow">
                 <div class="chatbot-header">
-                    <span>ProLab Assistant</span>
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <img src="images/imagenChat.png?v=2" alt="Bot Icon" style="width: 35px; height: 35px; border-radius: 50%; object-fit: cover; background: white; padding: 2px;">
+                        <span>ProLab Assistant</span>
+                    </div>
                     <button class="chatbot-close" id="chatbotClose">&times;</button>
                 </div>
                 <div class="chatbot-messages" id="chatbotMessages">
@@ -21,10 +24,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
             </div>
             <button class="chatbot-button" id="chatbotToggle">
-                <img src="images/chatbot.jpeg" alt="Chatbot">
+                <img src="images/imagenChat.png?v=2" alt="Chatbot">
             </button>
         </div>
     `;
+    
 
     // Inject chatbot HTML into body
     document.body.insertAdjacentHTML('beforeend', chatbotHTML);
@@ -83,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const optionsDiv = document.createElement('div');
         optionsDiv.className = 'chatbot-options';
-        
+
         options.forEach(option => {
             const btn = document.createElement('button');
             btn.className = 'chatbot-option-btn';
@@ -94,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
             optionsDiv.appendChild(btn);
         });
-        
+
         chatbotMessages.appendChild(optionsDiv);
         chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
     }
@@ -143,7 +147,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     nextOptions = ["Laboratorios", "Hospitales", "Industria", "Escuelas", "Volver al inicio"];
                     isHTML = false;
                 } else if (lowerText.includes("laboratorio") || lowerText.includes("hospital") || lowerText.includes("industria") || lowerText.includes("escuela")) {
-                    if(lowerText.includes("hospital")) {
+                    if (lowerText.includes("hospital")) {
                         botResponse = "Excelente. Puedes consultar las marcas que manejamos para hospitales haciendo <a href='hospitales.html'>clic aquí</a>.";
                     } else {
                         botResponse = "Excelente. Puedes consultar nuestro catálogo de marcas generales haciendo <a href='marcas.html'>clic aquí</a>.";
@@ -158,7 +162,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
 
                 addMessage(botResponse, 'bot', isHTML);
-                
+
                 // Mostrar opciones de nuevo después de responder
                 setTimeout(() => {
                     addOptions(nextOptions);

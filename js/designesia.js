@@ -62,6 +62,7 @@
 	 * header | sticky
 	 * --------------------------------------------------*/
 	function header_sticky() {
+		/*
 		jQuery("header").addClass("clone", 1000, "easeOutBounce");
 		var $document = $(document);
 		var vscroll = 0;
@@ -75,6 +76,7 @@
 			jQuery("header.autoshow").addClass("scrollOff");
 			vscroll = 0;
 		}
+		*/
 	}
 	
 	/* --------------------------------------------------
@@ -765,6 +767,7 @@
 				var distanceY = window.pageYOffset || document.documentElement.scrollTop,
 					shrinkOn = 55,
 					header = jQuery("header");
+				/*
 				if (distanceY > shrinkOn) {
 					if(!jQuery('body').hasClass('side-layout')){
 						header.addClass("smaller");
@@ -774,6 +777,7 @@
 						header.removeClass('smaller');
 					}
 				}
+				*/
 				
 				if (jQuery("body").hasClass("side-content")) {
 					jQuery("body").addClass("side-layout");
