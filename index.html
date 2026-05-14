@@ -31,7 +31,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <link rel="stylesheet" href="css/owl.carousel.css" type="text/css">
     <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
-    <link rel="stylesheet" href="css/redesign.css" type="text/css">
+    <link rel="stylesheet" href="css/redesign.css?v=1.2" type="text/css">
     <link rel="icon" href="images/favicon.ico">
 </head>
 
@@ -56,18 +56,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
             <nav>
                 <ul>
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="marcas.html">Productos</a></li>
-                    <li><a href="#section-about">Nosotros</a></li>
+                    <li><a href="#wrapper">Inicio</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#ubicacion">Ubicación</a></li>
+                    <li><a href="#reviews-modal" class="popup-with-zoom">Opiniones</a></li>
                 </ul>
             </nav>
-            <a href="#contacto" class="cta-button">
+            <a href="#quote-modal" class="cta-button popup-with-zoom">
                 SOLICITAR <br> COTIZACION <i class="fa fa-chevron-right"></i>
             </a>
         </header>
 
         <!-- Modern Hero Section -->
-        <section class="modern-hero" style="background: url('https://images.unsplash.com/photo-1579154235602-3c75cf4f09a5?q=80&w=2070&auto=format&fit=crop') no-repeat center center !important; background-size: cover !important;">
+        <section class="modern-hero" id="nosotros" style="background: url('images-slider/wide2.jpg') no-repeat center center !important; background-size: cover !important;">
             <div class="hero-content">
                 <h1>PRO-LAB QRO</h1>
                 <p>Desde 2015 impulsando el desarrollo industrial de Querétaro.</p>
@@ -136,28 +137,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </section>
 
         <!-- Stats Section -->
-        <section class="modern-stats">
+        <section class="modern-stats" id="stats-section-v2">
             <div class="container">
                 <div class="stats-container">
-                    <div class="stats-grid">
-                        <div class="stat-item">
-                            <div class="stat-icon-circle"><i class="fa fa-check-square-o"></i></div>
-                            <div class="stat-number">8,500+</div>
-                            <div class="stat-label">Ventas Exitosas</div>
+                    <div class="stats-content-wrapper" style="display: flex !important; flex-direction: row !important; align-items: stretch !important;">
+                        <div class="stats-left" style="flex: 0 0 380px !important; display: flex !important; align-items: center !important; justify-content: center !important; background: #ffffff !important;">
+                            <div class="stat-main-item" style="display: flex !important; align-items: center !important; gap: 15px !important;">
+                                <div class="stat-icon-square"><i class="fa fa-certificate"></i></div>
+                                <span class="stat-number">45</span>
+                                <div class="stat-label">Marcas <br> Representadas</div>
+                            </div>
                         </div>
-                        <div class="stat-item">
-                            <div class="stat-icon-circle"><i class="fa fa-users"></i></div>
-                            <div class="stat-number">1,200+</div>
-                            <div class="stat-label">Clientes Satisfechos</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-icon-circle"><i class="fa fa-certificate"></i></div>
-                            <div class="stat-number">45</div>
-                            <div class="stat-label">Marcas Representadas</div>
+                        <div class="stats-right" style="flex: 1 !important; display: flex !important; align-items: center !important; background: #f9fafb !important;">
+                            <p class="stats-description">
+                                Garantizamos el suministro de las firmas líderes en equipamiento de laboratorio, asegurando excelencia científica en cada proceso.
+                            </p>
                         </div>
                     </div>
                     <div class="stats-footer-bar">
-                        Datos actualizados al cierre de trimestre • Confianza comprobada
+                        Confianza comprobada
                     </div>
                 </div>
             </div>
@@ -218,7 +216,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <div class="score">4.9/5.0 <span class="based">Basado en 150+ opiniones</span></div>
                     </div>
                     <div class="testimonial-actions">
-                        <a href="#" class="btn-filled">VER OPINIONES</a>
+                        <a href="#reviews-modal" class="btn-filled popup-with-zoom">VER OPINIONES</a>
                         <a href="#" class="btn-outline"><i class="fa fa-plus"></i> DEJAR MI OPINIÓN</a>
                     </div>
                 </div>
@@ -226,7 +224,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </section>
 
         <!-- Sede Section -->
-        <section class="modern-sede" id="section-sede">
+        <section class="modern-sede" id="ubicacion">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-6">
@@ -285,9 +283,165 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     </div>
 
+    <!-- Quote Modal Content (Hidden) -->
+    <div id="quote-modal" class="zoom-anim-dialog mfp-hide">
+        <div class="modal-quote-wrapper">
+            <!-- Sidebar Azul -->
+            <div class="modal-quote-sidebar">
+                <div class="sidebar-top">
+                    <img src="images/logo_pro.png" alt="Pro-Lab Logo" class="sidebar-logo">
+                    <div class="logo-text-modal">
+                        <span class="brand">Pro-Lab</span>
+                        <span class="location">Queretaro</span>
+                    </div>
+                </div>
+                <div class="sidebar-content">
+                    <h2>Cotización <br> Especializada</h2>
+                    <p>Obtenga una propuesta detallada ajustada a las normativas de su sector.</p>
+                </div>
+                <div class="sidebar-footer">
+                    <div class="footer-item">
+                        <i class="fa fa-shield"></i>
+                        <span>Soporte Certificado</span>
+                    </div>
+                    <div class="footer-item">
+                        <i class="fa fa-clock-o"></i>
+                        <span>Respuesta Rápida</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formulario Blanco -->
+            <div class="modal-quote-form">
+                <form id="form-cotizacion">
+                    <div class="form-group">
+                        <label>Nombre Completo</label>
+                        <input type="text" placeholder="Ej. Roberto Garcia" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" placeholder="ejemplo@gmail.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Teléfono</label>
+                        <input type="tel" placeholder="442 000 0000" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Descripción del Requerimiento</label>
+                        <textarea placeholder="¿Qué equipos o insumos necesita?" rows="4" required></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-submit">
+                            <i class="fa fa-paper-plane"></i> ENVIAR SOLICITUD
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reviews Modal Content (Hidden) -->
+    <div id="reviews-modal" class="zoom-anim-dialog mfp-hide">
+        <div class="modal-reviews-content">
+            <h2 class="modal-title">Lo que nuestros clientes dicen</h2>
+            
+            <div id="modal-reviews-carousel" class="owl-carousel owl-theme">
+                <!-- Se cargará dinámicamente desde reviews.json -->
+            </div>
+        </div>
+    </div>
+
     <!-- Javascript Files -->
     <script src="js/jquery.min.js"></script>	
     <script src="js/bootstrap.min.js"></script>
     <script src="js/designesia.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/owl.carousel.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            // Reparación de Navegación
+            $('nav ul li a').on('click', function(e) {
+                const href = $(this).attr('href');
+                
+                // Si es un modal, dejar que Magnific Popup lo maneje
+                if ($(this).hasClass('popup-with-zoom')) return;
+
+                if (href.startsWith('#')) {
+                    const target = $(href);
+                    if (target.length) {
+                        e.preventDefault();
+                        $('html, body').stop().animate({
+                            scrollTop: target.offset().top - 85
+                        }, 1000, 'easeInOutQuint');
+                    }
+                }
+            });
+
+            const $carousel = $("#modal-reviews-carousel");
+
+            // 1. Pre-cargar las opiniones desde el JSON inmediatamente
+            $.getJSON('reviews.json', function(data) {
+                $.each(data, function(key, val) {
+                    let starsHtml = '';
+                    for(let i=0; i<val.stars; i++) {
+                        starsHtml += '<i class="fa fa-star"></i>';
+                    }
+
+                    const cardHtml = `
+                        <div class="review-card">
+                            <div class="review-header">
+                                <div class="quote-icon"><i class="fa fa-comment"></i></div>
+                                <div class="stars">${starsHtml}</div>
+                            </div>
+                            <p class="review-text">"${val.text}"</p>
+                            <div class="review-author">
+                                <div class="author-icon"><i class="fa fa-user-circle"></i></div>
+                                <div class="author-info">
+                                    <span class="name">${val.name}</span>
+                                    <span class="role">${val.role}</span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    $carousel.append(cardHtml);
+                });
+            }).fail(function() {
+                console.error("No se pudo cargar reviews.json");
+            });
+
+            // 2. Configurar el Popup
+            $('.popup-with-zoom').magnificPopup({
+                type: 'inline',
+                fixedContentPos: false,
+                fixedBgPos: true,
+                overflowY: 'auto',
+                closeBtnInside: true,
+                preloader: false,
+                midClick: true,
+                removalDelay: 300,
+                mainClass: 'my-mfp-zoom-in',
+                callbacks: {
+                    open: function() {
+                        // Inicializar o refrescar el Carrusel al abrir el modal
+                        $carousel.owlCarousel({
+                            items: 2,
+                            itemsDesktop: [1199, 2],
+                            itemsDesktopSmall: [980, 2],
+                            itemsTablet: [768, 1],
+                            itemsMobile: [479, 1],
+                            navigation: false,
+                            pagination: true,
+                            autoPlay: 4000,
+                            stopOnHover: true,
+                            mouseDrag: true,
+                            touchDrag: true,
+                            transitionStyle: "fade"
+                        });
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>

@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Sergio Servantes",
+        "role": "Hospital San José",
+        "text": "Excelente servicio en suministros médicos. La logística es impecable, siempre llegan a tiempo incluso en pedidos de emergencia.",
+        "stars": 5
+    },
+    {
+        "name": "Dra. Elena Ramos",
+        "role": "Laboratorio Central Qro.",
+        "text": "La calidad de los reactivos y el material de vidrio es superior. Pro-Lab se ha convertido en nuestro proveedor de confianza.",
+        "stars": 5
+    },
+    {
+        "name": "Ing. Ricardo Maza",
+        "role": "Industria Química Bajío",
+        "text": "Atención personalizada y asesoría técnica de primer nivel. Entienden perfectamente las necesidades de la industria.",
+        "stars": 5
+    },
+    {
+        "name": "Lic. Martha Solís",
+        "role": "Centro de Investigación Avanzada",
+        "text": "Gran variedad de stock y tiempos de entrega inmejorables en la región del Bajío.",
+        "stars": 5
+    }
+]
