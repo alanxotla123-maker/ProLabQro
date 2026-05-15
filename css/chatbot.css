@@ -55,6 +55,13 @@
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
+    bottom: 0;
+}
+
+.chatbot-window.active + .chatbot-button {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0);
 }
 
 .chatbot-header {
@@ -99,6 +106,12 @@
     color: #333;
     align-self: flex-start;
     border-bottom-left-radius: 2px;
+}
+
+.chat-message.bot a {
+    color: #315e9e !important;
+    font-weight: bold;
+    text-decoration: underline;
 }
 
 .chat-message.user {

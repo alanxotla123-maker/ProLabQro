@@ -22,5 +22,29 @@
         "role": "Centro de Investigación Avanzada",
         "text": "Gran variedad de stock y tiempos de entrega inmejorables en la región del Bajío.",
         "stars": 5
+    },
+    {
+        "name": "Dra. Lorena Villagrán",
+        "role": "Clínica de Especialidades Médicas",
+        "text": "Lo que más valoramos de trabajar con Pro-Lab es la inmediatez que nos brinda su única sede aquí en Querétaro. Al estar ubicados estratégicamente en el estado, la respuesta técnica y el surtido de consumibles es mucho más ágil que con proveedores nacionales.",
+        "stars": 5
+    },
+    {
+        "name": "Mtro. Julián Escutia",
+        "role": "Facultad de Ciencias Químicas",
+        "text": "Saber que Pro-Lab centraliza todas sus operaciones en su sede exclusiva de Querétaro nos da la seguridad de que el soporte post-venta es directo y sin intermediarios. La especialización de su catálogo y el equipo de docencia que adquirimos fue impecable.",
+        "stars": 5
+    },
+    {
+        "name": "T.L.C. Roberto Méndez",
+        "role": "Diagnóstico Integral del Bajío",
+        "text": "Aunque solo cuentan con un centro de distribución en Querétaro, su capacidad logística para cubrir parques industriales es superior. Los reactivos llegan con cadena de frío perfecta y la documentación técnica siempre está en orden.",
+        "stars": 5
+    },
+    {
+        "name": "Ing. Sofía Perea",
+        "role": "Control de Calidad Alimentos Qro.",
+        "text": "Excelente asesoría en la transición a nuevos equipos de medición. Al ser una empresa cien por ciento enfocada en nuestra región desde su sede local, la atención es sumamente cálida y personalizada, algo que se agradece frente a las grandes corporaciones.",
+        "stars": 5
     }
 ]
