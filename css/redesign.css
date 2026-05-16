@@ -111,7 +111,7 @@ header.modern-header .cta-button i {
 }
 
 .modern-hero h1 {
-    font-size: 5rem;
+    font-size: 6rem;
     font-weight: 800;
     margin: 0;
     line-height: 1;
@@ -612,13 +612,13 @@ header.modern-header .cta-button i {
 }
 
 .footer-logo .brand {
-    font-size: 1.8rem;
+    font-size: 2.2rem;
     font-weight: 900;
     color: #ffffff;
 }
 
 .footer-logo .location {
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     font-weight: 400;
     color: #ffffff;
     letter-spacing: 2px;
@@ -1049,7 +1049,7 @@ header:not(.modern-header),
 }
 
 .sector-info-panel h3 {
-    font-size: 2.2rem;
+    font-size: 2.8rem;
     font-weight: 800;
     color: #0f172a;
     margin: 0;
