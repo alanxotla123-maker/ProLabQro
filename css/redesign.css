@@ -1070,12 +1070,16 @@ header:not(.modern-header),
 
 .sector-brands-grid {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(6, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
     gap: 15px;
     padding: 40px;
     padding-bottom: 80px;
-    /* Space for the floating nav */
+    align-content: start;
+}
+
+/* Laboratorios (36 logos): cuadrícula compacta 6×6 original */
+.sector-brands-grid.grid-compact {
+    grid-template-columns: repeat(6, 1fr);
 }
 
 .brand-item {
@@ -1093,6 +1097,22 @@ header:not(.modern-header),
     transform: scale(1.05);
     opacity: 1;
     box-shadow: 0 5px 15px rgba(44, 176, 220, 0.2);
+}
+
+/* Logo inside brand-item */
+.brand-item img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    filter: none;
+    border-radius: 0;
+}
+
+/* Cuadros con logo: fondo blanco */
+.brand-item:has(img) {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    opacity: 1;
 }
 
 .sector-nav-floating {
@@ -1179,4 +1199,72 @@ header:not(.modern-header),
         margin-top: 30px;
         justify-content: center;
     }
+}
+
+/* ===== Review Cards Modern (Modal Ver Opiniones) ===== */
+.review-card-modern {
+    background: #ffffff;
+    border: 1px solid #f1f5f9;
+    border-radius: 20px;
+    padding: 30px;
+    margin: 10px 12px;
+    text-align: left;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+}
+
+.review-card-modern .review-header {
+    margin-bottom: 16px;
+}
+
+.review-card-modern .reviewer-info h4 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 4px 0;
+}
+
+.reviewer-role {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.review-card-modern .stars {
+    color: #fbbf24;
+    font-size: 0.85rem;
+}
+
+.review-card-modern .review-body p {
+    font-size: 1rem;
+    color: #475569;
+    line-height: 1.6;
+    font-style: italic;
+    margin: 0;
+}
+
+/* Reglas para la estructura actual de las tarjetas */
+.review-card-modern .reviewer-name {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 6px 0;
+}
+
+.review-card-modern .stars {
+    color: #fbbf24;
+    font-size: 1rem;
+    margin-bottom: 14px;
+}
+
+.review-card-modern .stars .fa-star {
+    color: #fbbf24;
+}
+
+.review-card-modern .review-text {
+    font-size: 1rem;
+    color: #475569;
+    line-height: 1.6;
+    font-style: italic;
+    margin: 0;
 }
