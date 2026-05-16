@@ -46,5 +46,257 @@
         "role": "Control de Calidad Alimentos Qro.",
         "text": "Excelente asesoría en la transición a nuevos equipos de medición. Al ser una empresa cien por ciento enfocada en nuestra región desde su sede local, la atención es sumamente cálida y personalizada, algo que se agradece frente a las grandes corporaciones.",
         "stars": 5
+    },
+    {
+        "name": "Dr. Alejandro Fuentes",
+        "role": "Hospital Regional de Querétaro",
+        "text": "Proveedor confiable para nuestro laboratorio de urgencias. Los tiempos de entrega son precisos y el equipo técnico siempre resuelve nuestras dudas de manera oportuna.",
+        "stars": 5
+    },
+    {
+        "name": "Quím. Patricia Ibáñez",
+        "role": "Laboratorio de Análisis Clínicos",
+        "text": "Llevamos más de cinco años trabajando con Pro-Lab y la calidad de sus insumos nunca ha fallado. Su catálogo es amplio y siempre tienen lo que necesitamos en stock.",
+        "stars": 5
+    },
+    {
+        "name": "Ing. Carlos Domínguez",
+        "role": "Planta Industrial Hylsa Qro.",
+        "text": "Sus equipos de medición y calibración son de primera calidad. El soporte posventa es excelente y el personal técnico tiene un amplio conocimiento del sector.",
+        "stars": 5
+    },
+    {
+        "name": "Dra. Verónica Castillo",
+        "role": "Centro Médico Especialidades",
+        "text": "Desde que comenzamos a trabajar con Pro-Lab, nuestra eficiencia en el laboratorio ha mejorado considerablemente. Los reactivos son de alta pureza y la atención al cliente es excepcional.",
+        "stars": 5
+    },
+    {
+        "name": "Lic. Fernando Núñez",
+        "role": "Universidad Autónoma de Querétaro",
+        "text": "Excelente proveedor para nuestros laboratorios académicos. Su asesoría en la compra de equipos especializados fue determinante para mejorar la calidad de nuestra investigación.",
+        "stars": 5
+    },
+    {
+        "name": "Biól. Carmen Pedraza",
+        "role": "Instituto de Biología Molecular",
+        "text": "La puntualidad en las entregas y la calidad del material es insuperable. Pro-Lab entiende las necesidades críticas de un laboratorio de investigación.",
+        "stars": 5
+    },
+    {
+        "name": "Ing. Jorge Salinas",
+        "role": "Grupo Industrial Bajío",
+        "text": "Contamos con Pro-Lab para el suministro de equipos de control de calidad. Su respuesta ante urgencias es inmediata y siempre cuentan con los materiales que necesitamos.",
+        "stars": 5
+    },
+    {
+        "name": "Dra. Claudia Ríos",
+        "role": "Clínica Santa Fe Querétaro",
+        "text": "El material de laboratorio que nos provee Pro-Lab cumple con todos los estándares de calidad requeridos. Su equipo de ventas conoce perfectamente las necesidades del sector salud.",
+        "stars": 5
+    },
+    {
+        "name": "Mtro. Pablo Herrera",
+        "role": "Centro de Investigación en Química",
+        "text": "Trabajar con Pro-Lab significa tener garantía de calidad en cada reactivo. Su asesoría técnica ha sido fundamental para optimizar nuestros procesos de investigación.",
+        "stars": 5
+    },
+    {
+        "name": "Q.F.B. Adriana Montoya",
+        "role": "Laboratorio Farmacéutico del Bajío",
+        "text": "La trazabilidad y documentación que acompaña cada producto de Pro-Lab nos facilita enormemente los procesos de auditoría. Son un proveedor comprometido con la calidad.",
+        "stars": 5
+    },
+    {
+        "name": "Ing. Roberto Garza",
+        "role": "Control de Calidad Cervecería",
+        "text": "Pro-Lab nos ha apoyado en la implementación de nuevos métodos de análisis. Su equipo técnico nos guió durante todo el proceso con profesionalismo.",
+        "stars": 5
+    },
+    {
+        "name": "Dra. Susana Leal",
+        "role": "Laboratorio de Microbiología",
+        "text": "Los medios de cultivo y los reactivos especializados que adquirimos siempre llegan en condiciones óptimas. La cadena de frío se respeta a la perfección.",
+        "stars": 5
+    },
+    {
+        "name": "T.L.C. Miguel Ángel Torres",
+        "role": "Laboratorio Clínico San Javier",
+        "text": "Gracias a Pro-Lab hemos podido ampliar nuestro portafolio de análisis clínicos sin sacrificar la calidad. Sus precios son competitivos y la atención es personalizada.",
+        "stars": 5
+    },
+    {
+        "name": "Ing. Laura Espinoza",
+        "role": "Industria Alimentaria Qro.",
+        "text": "Los equipos de análisis que adquirimos con Pro-Lab han superado nuestras expectativas. La instalación y puesta en marcha fue rápida y sin contratiempos.",
+        "stars": 5
+    },
+    {
+        "name": "Dr. Enrique Blanco",
+        "role": "Hospital Ángeles Querétaro",
+        "text": "Pro-Lab comprende la urgencia que implica el sector hospitalario. Nunca nos han fallado en entregas de insumos críticos y su servicio es de primer nivel.",
+        "stars": 5
+    },
+    {
+        "name": "Quím. Ana Luisa Vega",
+        "role": "Laboratorio de Toxicología",
+        "text": "Los estándares de referencia y reactivos certificados que provee Pro-Lab nos permiten garantizar la confiabilidad de nuestros resultados. Excelente calidad.",
+        "stars": 5
+    },
+    {
+        "name": "Ing. Ramón Castellanos",
+        "role": "Planta Automotriz Querétaro",
+        "text": "Pro-Lab nos ha provisto de los materiales necesarios para nuestro laboratorio de metrología. Su soporte técnico es ágil y efectivo.",
+        "stars": 5
+    },
+    {
+        "name": "Dra. Isabel Morales",
+        "role": "Centro de Salud Comunitario",
+        "text": "La facilidad para hacer pedidos y la rapidez de entrega hacen de Pro-Lab un aliado indispensable para nuestros servicios de salud en la comunidad.",
+        "stars": 5
+    },
+    {
+        "name": "Lic. Marco Jiménez",
+        "role": "Laboratorio Veterinario del Bajío",
+        "text": "Excelente catálogo de insumos para diagnóstico veterinario. Pro-Lab siempre tiene disponibilidad y su personal conoce las necesidades específicas de nuestro sector.",
+        "stars": 5
+    },
+    {
+        "name": "Bioquím. Teresa Ocampo",
+        "role": "Instituto de Salud del Estado",
+        "text": "La calidad certificada de los reactivos de Pro-Lab es esencial para nuestros estudios epidemiológicos. Su cumplimiento normativo es impecable.",
+        "stars": 5
+    },
+    {
+        "name": "Ing. Francisco Guzmán",
+        "role": "Refinería Industrial Querétaro",
+        "text": "Desde que contratamos a Pro-Lab para el suministro de nuestro laboratorio de aguas, los tiempos de análisis mejoraron notablemente gracias a la calidad de sus reactivos.",
+        "stars": 5
+    },
+    {
+        "name": "Dra. Fernanda Arroyo",
+        "role": "Policlínica del Norte Qro.",
+        "text": "El catálogo de Pro-Lab cubre todas nuestras necesidades de diagnóstico. Su equipo de ventas siempre ofrece alternativas cuando algún producto no está en inventario.",
+        "stars": 5
+    },
+    {
+        "name": "Mtro. Luis Alberto Mora",
+        "role": "Preparatoria Tecnológica Qro.",
+        "text": "Gracias a Pro-Lab equipamos nuestro laboratorio de química con material de alta calidad y a precios accesibles para el sector educativo. Muy recomendados.",
+        "stars": 5
+    },
+    {
+        "name": "Q.F.B. Gloria Sandoval",
+        "role": "Laboratorio de Control de Calidad",
+        "text": "La trazabilidad de los lotes y la documentación técnica que proporciona Pro-Lab facilita enormemente nuestros procesos de validación de métodos analíticos.",
+        "stars": 5
+    },
+    {
+        "name": "Ing. Héctor Valencia",
+        "role": "Empresa de Tratamiento de Aguas",
+        "text": "El equipo de Pro-Lab nos asesoró en la selección de los métodos de análisis más adecuados para nuestra planta. Su conocimiento técnico es destacable.",
+        "stars": 5
+    },
+    {
+        "name": "Dra. Rebeca Flores",
+        "role": "Hospital General IMSS Querétaro",
+        "text": "Pro-Lab es un proveedor comprometido con el sector salud. Su disposición para atender pedidos urgentes nos ha sacado de apuros en más de una ocasión.",
+        "stars": 5
+    },
+    {
+        "name": "T.L.C. Alberto Navarro",
+        "role": "Clínica de Diagnóstico Avanzado",
+        "text": "El soporte técnico de Pro-Lab para la instalación de nuestros nuevos equipos de hematología fue excepcional. Acompañaron todo el proceso de manera profesional.",
+        "stars": 5
+    },
+    {
+        "name": "Biól. Mariana Reyes",
+        "role": "Laboratorio de Genómica",
+        "text": "Los insumos de biología molecular que adquirimos con Pro-Lab son de la más alta calidad. Su catálogo especializado es ideal para investigación de vanguardia.",
+        "stars": 5
+    },
+    {
+        "name": "Ing. Daniela Cervantes",
+        "role": "Control de Calidad Industria Plástica",
+        "text": "La variedad de equipos analíticos que ofrece Pro-Lab cubrió todas nuestras necesidades de control de proceso. Excelente relación calidad-precio.",
+        "stars": 5
+    },
+    {
+        "name": "Dr. Arturo Medina",
+        "role": "Clínica de Endocrinología",
+        "text": "Los equipos de análisis hormonal que nos proporcionó Pro-Lab han elevado significativamente la precisión de nuestros diagnósticos. Servicio impecable.",
+        "stars": 5
+    },
+    {
+        "name": "Lic. Mónica Aguilar",
+        "role": "Instituto Tecnológico de Querétaro",
+        "text": "Gracias a Pro-Lab nuestros laboratorios de ingeniería química cuentan con los reactivos y materiales necesarios para una formación de excelencia.",
+        "stars": 5
+    },
+    {
+        "name": "Ing. Samuel Rueda",
+        "role": "Empresa Farmacéutica Bajío",
+        "text": "Pro-Lab cumple con todos los requerimientos regulatorios que necesitamos como empresa farmacéutica. Su documentación y certificaciones están siempre en orden.",
+        "stars": 5
+    },
+    {
+        "name": "Quím. Alicia Bravo",
+        "role": "Laboratorio de Bromatología",
+        "text": "La calidad del material de vidrio y los reactivos de Pro-Lab es consistente en cada pedido. Son un proveedor en quien se puede confiar plenamente.",
+        "stars": 5
+    },
+    {
+        "name": "Dr. Gustavo Peña",
+        "role": "Hospital ISSSTE Querétaro",
+        "text": "El abastecimiento oportuno de reactivos para nuestro laboratorio de patología es fundamental. Pro-Lab nunca ha fallado y su calidad es constante.",
+        "stars": 5
+    },
+    {
+        "name": "T.L.C. Olivia Tapia",
+        "role": "Laboratorio de Análisis Ambientales",
+        "text": "Para nuestro trabajo de monitoreo ambiental, la exactitud de los estándares certificados de Pro-Lab es indispensable. Siempre cumplen con nuestras especificaciones.",
+        "stars": 5
+    },
+    {
+        "name": "Ing. Ernesto Quiroz",
+        "role": "Laboratorio de Metrología Industrial",
+        "text": "Los patrones de calibración y equipos de medición que nos provee Pro-Lab cumplen con los estándares internacionales. Su asesoría técnica es invaluable.",
+        "stars": 5
+    },
+    {
+        "name": "Dra. Natalia Cárdenas",
+        "role": "Centro Oncológico Querétaro",
+        "text": "Pro-Lab nos ha apoyado con insumos especializados para nuestro laboratorio de oncología. Su compromiso con la calidad y los tiempos de entrega es sobresaliente.",
+        "stars": 5
+    },
+    {
+        "name": "Bioquím. Rodrigo Soto",
+        "role": "Laboratorio de Bioquímica Clínica",
+        "text": "La diversidad de enzimas, anticuerpos y kits diagnósticos disponibles en Pro-Lab nos permite ampliar continuamente nuestro menú de análisis.",
+        "stars": 5
+    },
+    {
+        "name": "Ing. Sandra Moreno",
+        "role": "Control Calidad Industria Textil",
+        "text": "Pro-Lab nos equipó con los instrumentos de análisis necesarios para nuestro laboratorio de control de calidad textil. Su asesoría fue precisa y muy profesional.",
+        "stars": 5
+    },
+    {
+        "name": "Dr. Hugo Villanueva",
+        "role": "Centro de Diagnóstico Molecular",
+        "text": "La rapidez con la que Pro-Lab gestiona los pedidos especiales nos ha permitido implementar nuevas técnicas diagnósticas sin retrasos. Son un socio estratégico.",
+        "stars": 5
+    },
+    {
+        "name": "Mtro. Claudia Paredes",
+        "role": "Universidad del Valle de México",
+        "text": "Pro-Lab nos ha brindado soluciones integrales para modernizar nuestros laboratorios de ciencias. Su equipo de ventas entiende perfectamente las necesidades académicas.",
+        "stars": 5
+    },
+    {
+        "name": "Q.F.B. Javier Mendoza",
+        "role": "Laboratorio de Control de Medicamentos",
+        "text": "La calidad de los estándares de referencia farmacéuticos que provee Pro-Lab es fundamental para nuestros procesos de liberación de lotes. Excelente proveedor.",
+        "stars": 5
     }
-]
+]

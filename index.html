@@ -295,11 +295,10 @@
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                         </div>
-                        <div class="score">4.9/5.0 <span class="based">Basado en 150+ opiniones</span></div>
+                        <div class="score">4.9/5.0 <span class="based">Basado en 50+ opiniones</span></div>
                     </div>
                     <div class="testimonial-actions">
-                        <a href="#reviews-modal" class="btn-filled popup-with-zoom">VER OPINIONES</a>
-                        <a href="#" class="btn-outline"><i class="fa fa-plus"></i> DEJAR MI OPINIÓN</a>
+                        <a href="#reviews-modal" class="btn-outline popup-with-zoom">VER OPINIONES</a>
                     </div>
                 </div>
             </div>
@@ -680,9 +679,9 @@
 
             const $carousel = $("#modal-reviews-carousel");
 
-            // 1. Pre-cargar las opiniones desde el JSON inmediatamente
+            // 1. Pre-cargar las opiniones desde el JSON inmediatamente (máx. 20)
             $.getJSON('reviews.json', function (data) {
-                $.each(data, function (key, val) {
+                $.each(data.slice(0, 20), function (key, val) {
                     let starsHtml = '';
                     for (let i = 0; i < val.stars; i++) {
                         starsHtml += '<i class="fa fa-star"></i>';
