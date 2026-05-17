@@ -626,10 +626,37 @@ header.modern-header .cta-button i {
     text-transform: uppercase;
 }
 
+.footer-right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 20px;
+}
+
 .copyright-text {
     font-size: 0.95rem;
     color: #94a3b8;
-    margin-top: 10px;
+}
+
+.footer-social {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.footer-social-link img {
+    height: 32px;
+    width: 32px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    opacity: 0.75;
+    transition: opacity 0.2s ease;
+}
+
+.footer-social-link:hover img {
+    opacity: 1;
 }
 
 /* Quote Modal Styles */
