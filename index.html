@@ -362,12 +362,16 @@
                     </a>
                     <div class="footer-right">
                         <div class="copyright-text">
-                            &copy; Copyright 2020 - PRO-LABQRO
+                            &copy; Copyright 2026 - PRO-LABQRO
                         </div>
                         <div class="footer-social">
-                            <a href="https://www.facebook.com/prolabqro" target="_blank" rel="noopener"
+                            <a href="https://www.facebook.com/prolab.queretaro" target="_blank" rel="noopener"
                                 class="footer-social-link" id="footer-facebook" title="Facebook">
                                 <img src="images/facebook.png" alt="Facebook">
+                            </a>
+                            <a href="https://www.instagram.com/prolabqro/" target="_blank" rel="noopener"
+                                class="footer-social-link" id="footer-instagram" title="Instagram">
+                                <img src="images/instagram.svg" alt="Instagram">
                             </a>
                             <a href="https://wa.me/524421234567" target="_blank" rel="noopener"
                                 class="footer-social-link" id="footer-whatsapp" title="WhatsApp">
@@ -733,6 +737,7 @@
                 mainClass: 'my-mfp-zoom-in',
                 callbacks: {
                     open: function () {
+                        $('.modern-header').addClass('header-hidden');
                         // Inicializar o refrescar el Carrusel al abrir el modal
                         if (!$carousel.hasClass('owl-loaded')) {
                             $carousel.owlCarousel({
@@ -750,6 +755,9 @@
                                 transitionStyle: "fade"
                             });
                         }
+                    },
+                    close: function () {
+                        $('.modern-header').removeClass('header-hidden');
                     }
                 }
             });
