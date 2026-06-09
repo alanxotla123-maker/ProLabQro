@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G35BQBLRLR"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-G35BQBLRLR');
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-KLT49D6');</script>
+    <!-- End Google Tag Manager -->
+
+    <meta charset="utf-8">
+    <title>Catálogo Proveedores Clínico-Médico - PRO-LAB QRO</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Catálogo visual interactivo de proveedores clínico-médico de PROLAB QRO. Examine todos nuestros reactivos, agars y consumibles directamente.">
+    <meta name="author" content="PROLAB QRO">
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="css/animate.css" type="text/css">
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/redesign.css?v=1.3" type="text/css">
+    <link rel="stylesheet" href="images/fonts/font-awesome/css/font-awesome.min.css" type="text/css">
+    <link rel="icon" href="images/favicon.ico">
+
+    <style>
+        /* Light Theme Catalog Viewer - Blue & White */
+        .catalog-viewer-section {
+            background: #f8fafc;
+            padding: 180px 0 60px;
+            min-height: 100vh;
+            color: #0f172a;
+        }
+
+        .catalog-header-text {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .catalog-header-text h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #0f172a;
+            margin-bottom: 10px;
+        }
+
+        .catalog-header-text p {
+            font-size: 1.2rem;
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* 2-Column Catalog Container */
+        .catalog-container {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin-bottom: 40px;
+            max-width: 970px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .viewer-row {
+            display: flex;
+            flex-wrap: nowrap;
+            margin: 0;
+        }
+
+        /* Left Column: Image Canvas */
+        .viewer-canvas-col {
+            width: 550px;
+            flex: 0 0 550px;
+            background: #ffffff;
+            padding: 40px 60px; /* 60px horizontal padding to leave room for the navigation buttons */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            border-right: 1px solid #e2e8f0;
+        }
+
+        .viewer-image-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: auto;
+        }
+
+        .image-wrapper {
+            position: relative;
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: zoom-in;
+            transition: transform 0.3s ease;
+        }
+
+        .image-wrapper:hover {
+            transform: scale(1.01);
+        }
+
+        .catalog-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            opacity: 1;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        /* Floating Nav Buttons on Canvas (relative to image wrapper) */
+        .catalog-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid #cbd5e1;
+            color: #0f172a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            backdrop-filter: blur(5px);
+            transition: all 0.2s ease;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            font-size: 1.5rem;
+        }
+
+        .catalog-nav-btn:hover {
+            background: #2CB0DC;
+            border-color: #2CB0DC;
+            color: white;
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 0 15px rgba(44, 176, 220, 0.3);
+        }
+
+        .catalog-nav-btn.btn-prev {
+            left: -55px; /* Floats perfectly in the 60px column padding, completely outside the image */
+        }
+
+        .catalog-nav-btn.btn-next {
+            right: -55px; /* Floats perfectly in the 60px column padding, completely outside the image */
+        }
+
+        /* Zoom indicator overlay */
+        .zoom-overlay-hint {
+            margin-top: 20px;
+            background: #f1f5f9;
+            color: #64748b;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            pointer-events: none;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+            text-align: center;
+        }
+
+        /* Right Column: Index and Actions */
+        .viewer-sidebar-col {
+            width: 420px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: #ffffff;
+        }
+
+        .sidebar-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e2e8f0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sidebar-title i {
+            color: #2CB0DC;
+        }
+
+        /* Index List */
+        .page-index-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 30px 0;
+        }
+
+        .page-index-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 16px 20px;
+            border-radius: 12px;
+            cursor: pointer;
+            margin-bottom: 10px;
+            transition: all 0.25s ease;
+            border: 1px solid transparent;
+        }
+
+        .page-index-item:hover {
+            background: #f1f5f9;
+            border-color: #e2e8f0;
+        }
+
+        .page-index-item.active {
+            background: rgba(44, 176, 220, 0.08);
+            border-color: rgba(44, 176, 220, 0.3);
+        }
+
+        .index-num {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: #e2e8f0;
+            color: #475569;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.25s ease;
+            flex-shrink: 0;
+        }
+
+        .page-index-item.active .index-num {
+            background: #2CB0DC;
+            color: white;
+            box-shadow: 0 0 10px rgba(44, 176, 220, 0.2);
+        }
+
+        .index-text-wrapper {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.3;
+        }
+
+        .index-page-title {
+            font-weight: 800;
+            color: #1e293b;
+            font-size: 1.3rem;
+            transition: color 0.25s ease;
+        }
+
+        .page-index-item.active .index-page-title {
+            color: #2CB0DC;
+        }
+
+        .index-page-desc {
+            font-size: 1.0rem;
+            color: #64748b;
+            margin-top: 4px;
+        }
+
+        /* Actions panel */
+        .sidebar-actions-panel {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 20px;
+        }
+
+        .actions-header {
+            font-weight: 700;
+            font-size: 1.15rem;
+            color: #1e293b;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .actions-header i {
+            color: #2CB0DC;
+        }
+
+        .btn-action-primary {
+            width: 100%;
+            background: #2CB0DC;
+            color: white;
+            font-weight: 800;
+            font-size: 1.1rem;
+            padding: 16px 20px;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-action-primary:hover {
+            background: #2499c0;
+            box-shadow: 0 8px 20px rgba(44, 176, 220, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .btn-action-secondary {
+            width: 100%;
+            background: #ffffff;
+            color: #334155;
+            font-weight: 700;
+            font-size: 1.05rem;
+            padding: 14px 20px;
+            border-radius: 12px;
+            border: 1px solid #cbd5e1;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .btn-action-secondary:hover {
+            background: #f1f5f9;
+            color: #0f172a;
+            transform: translateY(-1px);
+        }
+
+        /* Bottom Thumbnail Carousel */
+        .thumbnails-container {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            overflow-x: auto;
+            padding: 15px 5px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .thumbnail-item {
+            width: 90px;
+            height: 120px;
+            flex-shrink: 0;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 2px solid #cbd5e1;
+            cursor: pointer;
+            opacity: 0.6;
+            transition: all 0.25s ease;
+            position: relative;
+        }
+
+        .thumbnail-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .thumbnail-item:hover {
+            opacity: 0.9;
+            border-color: rgba(44, 176, 220, 0.5);
+            transform: translateY(-3px);
+        }
+
+        .thumbnail-item.active {
+            opacity: 1;
+            border-color: #2CB0DC;
+            box-shadow: 0 0 15px rgba(44, 176, 220, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .thumbnail-badge {
+            position: absolute;
+            bottom: 4px;
+            right: 4px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #0f172a;
+            font-size: 0.7rem;
+            font-weight: 800;
+            padding: 2px 6px;
+            border-radius: 4px;
+            border: 1px solid #cbd5e1;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .viewer-row {
+                flex-wrap: wrap;
+            }
+
+            .viewer-sidebar-col {
+                width: 100%;
+                border-top: 1px solid #e2e8f0;
+            }
+
+            .viewer-canvas-col {
+                width: 100%;
+                flex: 1 1 auto;
+                border-right: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .catalog-header-text h1 {
+                font-size: 2.2rem;
+            }
+
+            .catalog-viewer-section {
+                padding: 140px 0 40px;
+            }
+
+            .viewer-canvas-col {
+                padding: 25px 45px; /* Extra horizontal padding for navigation buttons on small screens */
+            }
+
+            .catalog-img {
+                max-height: none;
+            }
+        }
+    </style>
+</head>
+
+<body id="homepage">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KLT49D6" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div id="wrapper">
+
+        <!-- Modern Header -->
+        <header class="modern-header">
+            <div class="logo-container">
+                <a href="index.html" style="display: flex; align-items: center; text-decoration: none; gap: 10px;">
+                    <img src="images/logo_pro.png" alt="Pro-Lab Queretaro">
+                    <div style="display: flex; flex-direction: column; line-height: 1;">
+                        <span style="font-size: 2.2rem; font-weight: 900; color: #000;">Pro-Lab</span>
+                        <span
+                            style="font-size: 1.1rem; font-weight: 400; color: #000; letter-spacing: 2px; text-transform: uppercase;">Queretaro</span>
+                    </div>
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="index.html#nosotros">Nosotros</a></li>
+                    <li><a href="index.html#ubicacion">Ubicación</a></li>
+                    <li><a href="index.html#opiniones">Opiniones</a></li>
+                    <li><a href="proveedores.html" style="color: #2CB0DC; font-weight: 800;">Catálogo</a></li>
+                </ul>
+            </nav>
+            <a href="#quote-modal" class="cta-button popup-with-zoom">
+                SOLICITAR <br> COTIZACION <i class="fa fa-chevron-right"></i>
+            </a>
+        </header>
+
+        <!-- Catalog Viewer Section -->
+        <section class="catalog-viewer-section">
+            <div class="container">
+                <div class="catalog-header-text">
+                    <h1>Catálogo Interactivo</h1>
+                    <p>Visualice de forma interactiva nuestra gama de reactivos, medios de cultivo, agars y consumibles
+                        clínico-médicos.</p>
+                </div>
+
+                <!-- Main Grid Viewer -->
+                <div class="catalog-container">
+                    <div class="viewer-row">
+                        <!-- Left Column: Big Image Canvas -->
+                        <div class="viewer-canvas-col">
+                            <!-- Image container that hugs the image tightly -->
+                            <div class="viewer-image-container">
+                                <!-- Left arrow -->
+                                <div class="catalog-nav-btn btn-prev" id="prev-btn">
+                                    <i class="fa fa-chevron-left"></i>
+                                </div>
+
+                                <!-- Image wrapper for Lightbox -->
+                                <a href="images/proveedor_page_1.png" class="image-wrapper" id="lightbox-link"
+                                    title="Proveedores Clínico-Médico PROLAB (Pág. 1)">
+                                    <img src="images/proveedor_page_1.png"
+                                        alt="Página 1 de Proveedores Clínico-Médico PROLAB" class="catalog-img"
+                                        id="main-catalog-img">
+                                </a>
+
+                                <!-- Right arrow -->
+                                <div class="catalog-nav-btn btn-next" id="next-btn">
+                                    <i class="fa fa-chevron-right"></i>
+                                </div>
+                            </div>
+
+                            <!-- Zoom hint -->
+                            <div class="zoom-overlay-hint">
+                                <i class="fa fa-search-plus"></i> Clic para pantalla completa y zoom
+                            </div>
+                        </div>
+
+                        <!-- Right Column: Navigation Index & Actions -->
+                        <div class="viewer-sidebar-col">
+                            <div>
+                                <div class="sidebar-title">
+                                    <i class="fa fa-list-ul"></i> Índice de Secciones
+                                </div>
+                                <ul class="page-index-list">
+                                    <li class="page-index-item active" data-page="1">
+                                        <div class="index-num">1</div>
+                                        <div class="index-text-wrapper">
+                                            <span class="index-page-title">Soluciones Clínicas</span>
+                                            <span class="index-page-desc">Buffer de Fosfato, Wright, Alcohol
+                                                absoluto</span>
+                                        </div>
+                                    </li>
+                                    <li class="page-index-item" data-page="2">
+                                        <div class="index-num">2</div>
+                                        <div class="index-text-wrapper">
+                                            <span class="index-page-title">Kits de Tinción y Jabón</span>
+                                            <span class="index-page-desc">Kit Gram, Kit Ziehl Neelsen, Jabón Plus</span>
+                                        </div>
+                                    </li>
+                                    <li class="page-index-item" data-page="3">
+                                        <div class="index-num">3</div>
+                                        <div class="index-text-wrapper">
+                                            <span class="index-page-title">Inmunología y Coagulación</span>
+                                            <span class="index-page-desc">Hemoclasificadores Spinreact y Biorad</span>
+                                        </div>
+                                    </li>
+                                    <li class="page-index-item" data-page="4">
+                                        <div class="index-num">4</div>
+                                        <div class="index-text-wrapper">
+                                            <span class="index-page-title">Medios de Cultivo (Agars)</span>
+                                            <span class="index-page-desc">Salmonella, Sangre, Mac Conkey (c/10
+                                                placas)</span>
+                                        </div>
+                                    </li>
+                                    <li class="page-index-item" data-page="5">
+                                        <div class="index-num">5</div>
+                                        <div class="index-text-wrapper">
+                                            <span class="index-page-title">Material de Toma y Protección</span>
+                                            <span class="index-page-desc">Equipo alado Vacutainer, Parafilm,
+                                                Cubrebocas</span>
+                                        </div>
+                                    </li>
+                                    <li class="page-index-item" data-page="6">
+                                        <div class="index-num">6</div>
+                                        <div class="index-text-wrapper">
+                                            <span class="index-page-title">Consumibles e Instrumental</span>
+                                            <span class="index-page-desc">Portaobjetos, Puntas micropipeta,
+                                                Curitas</span>
+                                        </div>
+                                    </li>
+                                    <li class="page-index-item" data-page="7">
+                                        <div class="index-num">7</div>
+                                        <div class="index-text-wrapper">
+                                            <span class="index-page-title">Reactivos Analizador M-30</span>
+                                            <span class="index-page-desc">Detergente, Diluyente y Lisante M-30</span>
+                                        </div>
+                                    </li>
+                                    <li class="page-index-item" data-page="8">
+                                        <div class="index-num">8</div>
+                                        <div class="index-text-wrapper">
+                                            <span class="index-page-title">Tubos y Medios de Transporte</span>
+                                            <span class="index-page-desc">Medio Stuart, Agua destilada, Tubos lila y
+                                                rojo</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Actions Box -->
+                            <div class="sidebar-actions-panel">
+                                <div class="actions-header">
+                                    <i class="fa fa-info-circle"></i> Cotización de Insumos
+                                </div>
+                                <button class="btn-action-primary" id="quote-active-page-btn">
+                                    <i class="fa fa-envelope-o"></i> COTIZAR ESTA SECCIÓN
+                                </button>
+                                <a href="images/Proveedores Clínico-Médico PROLAB Insumos.pdf" download
+                                    class="btn-action-secondary">
+                                    <i class="fa fa-download"></i> Descargar PDF Original
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom Carousel Strip -->
+                <div class="thumbnails-container">
+                    <div class="thumbnail-item active" data-page="1">
+                        <img src="images/proveedor_page_1.png" alt="Miniatura Pág. 1">
+                        <span class="thumbnail-badge">1</span>
+                    </div>
+                    <div class="thumbnail-item" data-page="2">
+                        <img src="images/proveedor_page_2.png" alt="Miniatura Pág. 2">
+                        <span class="thumbnail-badge">2</span>
+                    </div>
+                    <div class="thumbnail-item" data-page="3">
+                        <img src="images/proveedor_page_3.png" alt="Miniatura Pág. 3">
+                        <span class="thumbnail-badge">3</span>
+                    </div>
+                    <div class="thumbnail-item" data-page="4">
+                        <img src="images/proveedor_page_4.png" alt="Miniatura Pág. 4">
+                        <span class="thumbnail-badge">4</span>
+                    </div>
+                    <div class="thumbnail-item" data-page="5">
+                        <img src="images/proveedor_page_5.png" alt="Miniatura Pág. 5">
+                        <span class="thumbnail-badge">5</span>
+                    </div>
+                    <div class="thumbnail-item" data-page="6">
+                        <img src="images/proveedor_page_6.png" alt="Miniatura Pág. 6">
+                        <span class="thumbnail-badge">6</span>
+                    </div>
+                    <div class="thumbnail-item" data-page="7">
+                        <img src="images/proveedor_page_7.png" alt="Miniatura Pág. 7">
+                        <span class="thumbnail-badge">7</span>
+                    </div>
+                    <div class="thumbnail-item" data-page="8">
+                        <img src="images/proveedor_page_8.png" alt="Miniatura Pág. 8">
+                        <span class="thumbnail-badge">8</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Footer Strip -->
+        <footer class="ultra-minimal-footer">
+            <div class="container">
+                <div class="footer-content">
+                    <a href="index.html" class="footer-logo">
+                        <img src="images/logo_pro.png" alt="Pro-Lab Queretaro">
+                        <div class="logo-text">
+                            <span class="brand">Pro-Lab</span>
+                            <span class="location">Queretaro</span>
+                        </div>
+                    </a>
+                    <div class="footer-right">
+                        <div class="copyright-text">
+                            &copy; Copyright 2026 - PRO-LABQRO
+                        </div>
+                        <div class="footer-social">
+                            <a href="https://www.facebook.com/prolab.queretaro" target="_blank" rel="noopener"
+                                class="footer-social-link" id="footer-facebook" title="Facebook">
+                                <img src="images/facebook.png" alt="Facebook">
+                            </a>
+                            <a href="https://www.instagram.com/prolabqro/" target="_blank" rel="noopener"
+                                class="footer-social-link" id="footer-instagram" title="Instagram">
+                                <img src="images/instagram.svg" alt="Instagram">
+                            </a>
+                            <a href="https://wa.me/524421234567" target="_blank" rel="noopener"
+                                class="footer-social-link" id="footer-whatsapp" title="WhatsApp">
+                                <img src="images/whatsapp.png" alt="WhatsApp">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Quote Modal Content (Hidden) -->
+    <div id="quote-modal" class="zoom-anim-dialog mfp-hide">
+        <div class="modal-quote-wrapper">
+            <!-- Sidebar Azul -->
+            <div class="modal-quote-sidebar">
+                <div class="sidebar-top">
+                    <img src="images/logo_pro.png" alt="Pro-Lab Logo" class="sidebar-logo">
+                    <div class="logo-text-modal">
+                        <span class="brand">Pro-Lab</span>
+                        <span class="location">Queretaro</span>
+                    </div>
+                </div>
+                <div class="sidebar-content">
+                    <h2>Cotización <br> Especializada</h2>
+                    <p>Obtenga una propuesta detallada ajustada a las normativas de su sector.</p>
+                </div>
+                <div class="sidebar-footer">
+                    <div class="footer-item">
+                        <i class="fa fa-shield"></i>
+                        <span>Soporte Certificado</span>
+                    </div>
+                    <div class="footer-item">
+                        <i class="fa fa-clock-o"></i>
+                        <span>Respuesta Rápida</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formulario Blanco -->
+            <div class="modal-quote-form">
+                <form id="form-cotizacion">
+                    <div class="form-group">
+                        <label>Nombre Completo</label>
+                        <input type="text" id="quote-name" placeholder="Ej. Roberto Garcia" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="quote-email" placeholder="ejemplo@gmail.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Teléfono</label>
+                        <input type="tel" id="quote-phone" placeholder="442 000 0000" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Descripción del Requerimiento</label>
+                        <textarea id="quote-message" placeholder="¿Qué equipos o insumos necesita?" rows="4"
+                            required></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-submit">
+                            <i class="fa fa-paper-plane"></i> ENVIAR SOLICITUD
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Javascript Files -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            let currentPage = 1;
+            const totalPages = 8;
+
+            // Details for pre-filling inquiries based on active page
+            const pageData = {
+                1: { title: "Soluciones Clínicas Básicas", details: "reactivos de la Página 1 (Buffer de Fosfato, Colorante de Wright, Violeta de Genciana, Alcohol Absoluto, Aceite de Inmersión, Anticoagulante)" },
+                2: { title: "Kits de Tinción y Jabón Plus", details: "reactivos de la Página 2 (Kit Gram Colorantes, Kit Ziehl Neelsen, Hemocolorante Rápido, Jabón Plus)" },
+                3: { title: "Inmunología y Coagulación", details: "pruebas de la Página 3 (Hemoclasificadores Spinreact y Biorad, Antígenos Febriles, PT/APTT)" },
+                4: { title: "Medios de Cultivo (Agars)", details: "medios de la Página 4 (Agar Salmonella, Agar Sangre, Agar Mac Conkey, Agar Mueller Hinton, Sabouraud, Sal y Manitol)" },
+                5: { title: "Material de Toma y Protección", details: "material de la Página 5 (Equipo alado Vacutainer, Papel Parafilm, Cubrebocas Negro Tricapa)" },
+                6: { title: "Consumibles e Instrumental de Laboratorio", details: "consumibles de la Página 6 (Portaobjetos, Cubreobjetos, Puntas de micropipeta, Curitas, Almohadilla con alcohol)" },
+                7: { title: "Reactivos Analizador Hematológico M-30", details: "reactivos de la Página 7 (Detergente, Diluyente y Lisante M-30, Probe Cleanser)" },
+                8: { title: "Medios de Transporte y Tubos", details: "reactivos de la Página 8 (Medio Stuart con/sin carbón, Equipo Gram, Agua destilada/tridestilada, Tubos GoldenVac)" }
+            };
+
+            function updateViewer(pageNumber) {
+                currentPage = parseInt(pageNumber);
+
+                const newImgSrc = `images/proveedor_page_${currentPage}.png`;
+
+                // Smooth fade transition
+                $('#main-catalog-img').fadeOut(150, function () {
+                    $(this).attr('src', newImgSrc).attr('alt', `Página ${currentPage} de Proveedores Clínico-Médico PROLAB`).fadeIn(150);
+                });
+
+                // Update Lightbox Link
+                $('#lightbox-link').attr('href', newImgSrc).attr('title', `Proveedores Clínico-Médico PROLAB - Pág. ${currentPage}: ${pageData[currentPage].title}`);
+
+                // Update Active states in sidebar index list
+                $('.page-index-item').removeClass('active');
+                $(`.page-index-item[data-page="${currentPage}"]`).addClass('active');
+
+                // Update Active states in thumbnail carousel
+                $('.thumbnail-item').removeClass('active');
+                $(`.thumbnail-item[data-page="${currentPage}"]`).addClass('active');
+
+                // Scroll active thumbnail into view
+                const activeThumb = $(`.thumbnail-item[data-page="${currentPage}"]`);
+                const container = $('.thumbnails-container');
+                if (activeThumb.length) {
+                    const scrollLeft = activeThumb.position().left + container.scrollLeft() - (container.width() / 2) + (activeThumb.width() / 2);
+                    container.animate({ scrollLeft: scrollLeft }, 200);
+                }
+            }
+
+            // Click Prev
+            $('#prev-btn').on('click', function () {
+                let prev = currentPage - 1;
+                if (prev < 1) prev = totalPages;
+                updateViewer(prev);
+            });
+
+            // Click Next
+            $('#next-btn').on('click', function () {
+                let next = currentPage + 1;
+                if (next > totalPages) next = 1;
+                updateViewer(next);
+            });
+
+            // Click Sidebar Index Item
+            $('.page-index-item').on('click', function () {
+                const targetPage = $(this).data('page');
+                updateViewer(targetPage);
+            });
+
+            // Click Thumbnail
+            $('.thumbnail-item').on('click', function () {
+                const targetPage = $(this).data('page');
+                updateViewer(targetPage);
+            });
+
+            // Keyboard Navigation (Left / Right keys)
+            $(document).on('keydown', function (e) {
+                if (e.keyCode === 37) { // Left arrow
+                    $('#prev-btn').trigger('click');
+                } else if (e.keyCode === 39) { // Right arrow
+                    $('#next-btn').trigger('click');
+                }
+            });
+
+            // Initialize Magnific Popup Zoom on Main Canvas Image
+            $('.image-wrapper').magnificPopup({
+                type: 'image',
+                closeOnContentClick: true,
+                mainClass: 'mfp-img-mobile mfp-with-zoom',
+                image: {
+                    verticalFit: true
+                },
+                zoom: {
+                    enabled: true,
+                    duration: 300,
+                    opener: function (element) {
+                        return element.find('img');
+                    }
+                },
+                callbacks: {
+                    open: function () {
+                        $('.modern-header').addClass('header-hidden');
+                    },
+                    close: function () {
+                        $('.modern-header').removeClass('header-hidden');
+                    }
+                }
+            });
+
+            // Set up Magnific Popup for Form Modal (CTA Button in Header)
+            $('.popup-with-zoom').magnificPopup({
+                type: 'inline',
+                fixedContentPos: false,
+                fixedBgPos: true,
+                overflowY: 'auto',
+                closeBtnInside: true,
+                preloader: false,
+                midClick: true,
+                removalDelay: 300,
+                mainClass: 'my-mfp-zoom-in',
+                callbacks: {
+                    open: function () {
+                        $('.modern-header').addClass('header-hidden');
+                    },
+                    close: function () {
+                        $('.modern-header').removeClass('header-hidden');
+                    }
+                }
+            });
+
+            // Quote Active Page Button handler
+            $('#quote-active-page-btn').on('click', function () {
+                const activeData = pageData[currentPage];
+
+                // Pre-fill text area in the modal form
+                $('#quote-message').val(`Hola, me interesa cotizar los ${activeData.details}. Por favor bríndenme información técnica y costos.`);
+
+                // Open the modal
+                $.magnificPopup.open({
+                    items: {
+                        src: '#quote-modal'
+                    },
+                    type: 'inline',
+                    fixedContentPos: false,
+                    fixedBgPos: true,
+                    overflowY: 'auto',
+                    closeBtnInside: true,
+                    preloader: false,
+                    midClick: true,
+                    removalDelay: 300,
+                    mainClass: 'my-mfp-zoom-in',
+                    callbacks: {
+                        open: function () {
+                            $('.modern-header').addClass('header-hidden');
+                        },
+                        close: function () {
+                            $('.modern-header').removeClass('header-hidden');
+                        }
+                    }
+                });
+            });
+
+            // Form Submit handler
+            $('#form-cotizacion').on('submit', function (e) {
+                e.preventDefault();
+                alert(`¡Gracias por su solicitud! Nos pondremos en contacto pronto.`);
+                $.magnificPopup.close();
+            });
+        });
+    </script>
+</body>
+
+</html>
