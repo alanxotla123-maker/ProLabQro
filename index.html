@@ -656,6 +656,27 @@
             // Inicializar con el primero por si acaso, aunque estará oculto
             switchSector("laboratorios");
 
+            // Revisar si venimos de otra página con un sector específico
+            const urlParams = new URLSearchParams(window.location.search);
+            const targetSector = urlParams.get('sector');
+            if (targetSector) {
+                // Activar el sector correspondiente
+                $(".nav-item").removeClass("active");
+                $(`.nav-item[data-sector="${targetSector}"]`).addClass("active");
+                switchSector(targetSector);
+
+                // Mostrar la vista detallada en lugar de los círculos
+                $("#sectores").hide();
+                $("#sectores-detalle").show();
+                
+                // Hacer scroll a la sección
+                setTimeout(() => {
+                    $('html, body').animate({
+                        scrollTop: $("#sectores-detalle").offset().top - 85
+                    }, 500);
+                }, 100);
+            }
+
             // Reparación de Navegación Global (incluye enlaces del Chatbot)
             $(document).on('click', 'a', function (e) {
                 const href = $(this).attr('href');

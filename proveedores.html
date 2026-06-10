@@ -37,6 +37,7 @@
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <link rel="stylesheet" href="css/redesign.css?v=1.3" type="text/css">
     <link rel="stylesheet" href="images/fonts/font-awesome/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/chatbot.css" type="text/css">
     <link rel="icon" href="images/favicon.ico">
 
     <style>
@@ -755,6 +756,7 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/chatbot.js"></script>
 
     <script>
         $(document).ready(function () {
@@ -863,8 +865,9 @@
                 }
             });
 
-            // Set up Magnific Popup for Form Modal (CTA Button in Header)
-            $('.popup-with-zoom').magnificPopup({
+            // Set up Magnific Popup for Form Modal (CTA Button in Header and Chatbot)
+            $(document).magnificPopup({
+                delegate: '.popup-with-zoom',
                 type: 'inline',
                 fixedContentPos: false,
                 fixedBgPos: true,

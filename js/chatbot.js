@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Mostrar opciones iniciales
     setTimeout(() => {
-        addOptions(["Cotizar", "Productos", "Promociones", "WhatsApp", "Horario"]);
+        addOptions(["Cotizar", "Catálogo", "Productos", "Promociones", "WhatsApp", "Horario"]);
     }, 500);
 
     function handleSend() {
@@ -128,22 +128,33 @@ document.addEventListener("DOMContentLoaded", function () {
                 removeTyping(); // Quitar animación
 
                 const lowerText = text.toLowerCase();
+                
+                const isIndex = window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/') || window.location.pathname === '';
+                const indexPrefix = isIndex ? '' : 'index.html';
+
                 let botResponse = "Gracias por tu mensaje. Un asesor se comunicará contigo pronto. Si deseas, puedes enviarnos un correo a <a href='mailto:atencionaclientes@prolabqro.com'>atencionaclientes@prolabqro.com</a>.";
                 let isHTML = true;
-                let nextOptions = ["Cotizar", "Productos", "Promociones", "WhatsApp", "Horario"];
+                let nextOptions = ["Cotizar", "Catálogo", "Productos", "Promociones", "WhatsApp", "Horario"];
 
                 if (lowerText.includes("precio") || lowerText.includes("cotización") || lowerText.includes("cotizar")) {
                     botResponse = "Para cotizaciones, por favor haz clic en el botón de <a href='#quote-modal' class='popup-with-zoom'>SOLICITAR COTIZACIÓN</a> o escríbenos directamente.";
                 } else if (lowerText.includes("horario")) {
-                    botResponse = "Nuestro horario de atención es de Lunes a Viernes de 09:00 a 18:00 hrs. Puedes verlo en nuestra sección de <a href='#ubicacion'>ubicación</a>.";
+                    botResponse = `Nuestro horario de atención es de Lunes a Viernes de 09:00 a 18:00 hrs. Puedes verlo en nuestra sección de <a href='${indexPrefix}#ubicacion'>ubicación</a>.`;
                     isHTML = true;
                 } else if (lowerText.includes("ubicación") || lowerText.includes("dónde están") || lowerText.includes("donde")) {
-                    botResponse = "Estamos ubicados en Querétaro. Puedes ver el mapa y la dirección exacta en nuestra <a href='#ubicacion'>sección de ubicación</a>.";
+                    botResponse = `Estamos ubicados en Querétaro. Puedes ver el mapa y la dirección exacta en nuestra <a href='${indexPrefix}#ubicacion'>sección de ubicación</a>.`;
                 } else if (lowerText.includes("hola") || lowerText.includes("buenos días") || lowerText.includes("buenas tardes")) {
                     botResponse = "¡Hola! Soy el asistente virtual de PRO-LAB QRO. ¿En qué puedo ayudarte hoy?";
                     isHTML = false;
-                } else if (lowerText.includes("producto") || lowerText.includes("catálogo") || lowerText.includes("sector")) {
-                    botResponse = "Manejamos material y equipo para Laboratorios, Hospitales, Industria y más. Puedes ver los detalles en nuestra <a href='#sectores' class='sector-trigger' data-sector='laboratorios'>sección de sectores</a>.";
+                } else if (lowerText.includes("catálogo") || lowerText.includes("catalogo")) {
+                    if (window.location.pathname.endsWith('proveedores.html')) {
+                        botResponse = "Ya te encuentras en nuestro Catálogo Interactivo. Puedes usar el índice o las miniaturas para navegar entre las diferentes categorías de insumos.";
+                    } else {
+                        botResponse = "Puedes ver todos nuestros insumos directamente en nuestro <a href='proveedores.html'>Catálogo Interactivo</a>.";
+                    }
+                    isHTML = true;
+                } else if (lowerText.includes("producto") || lowerText.includes("sector")) {
+                    botResponse = `Manejamos material y equipo para Laboratorios, Hospitales, Industria y más. Puedes ver los detalles en nuestra <a href='${indexPrefix}#sectores' class='sector-trigger' data-sector='laboratorios'>sección de sectores</a>.`;
                     isHTML = true;
                 } else if (lowerText.includes("laboratorio") || lowerText.includes("hospital") || lowerText.includes("industria") || lowerText.includes("escuela") || lowerText.includes("investigación")) {
                     let target = "laboratorios";
@@ -152,7 +163,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     if (lowerText.includes("escuela")) target = "escuelas";
                     if (lowerText.includes("investigación")) target = "investigacion";
                     
-                    botResponse = `Excelente. Tenemos soluciones específicas para ese sector. Te invito a revisarlas en nuestra <a href='#sectores' class='sector-trigger' data-sector='${target}'>área interactiva de sectores</a>.`;
+                    let href = isIndex ? `#sectores` : `index.html?sector=${target}#sectores`;
+                    botResponse = `Excelente. Tenemos soluciones específicas para ese sector. Te invito a revisarlas en nuestra <a href='${href}' class='sector-trigger' data-sector='${target}'>área interactiva de sectores</a>.`;
                 }
  else if (lowerText.includes("whatsapp") || lowerText.includes("asesor") || lowerText.includes("humano")) {
                     botResponse = "¡Claro! Haz <a href='https://wa.me/524422106250?text=Hola,%20me%20gustar%C3%ADa%20recibir%20m%C3%A1s%20informaci%C3%B3n' target='_blank'>clic aquí para platicar con un asesor por WhatsApp</a>.";
