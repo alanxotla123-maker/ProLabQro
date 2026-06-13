@@ -361,6 +361,16 @@ header.modern-header .cta-button i {
     flex-direction: column;
     align-items: center;
     gap: 15px;
+    cursor: pointer;
+}
+
+.sector-item:hover .sector-image-circle {
+    transform: scale(1.08);
+    box-shadow: 0 15px 30px rgba(44, 176, 220, 0.35);
+}
+
+.sector-item:hover span {
+    color: #2CB0DC !important;
 }
 
 .sector-image-circle {
@@ -383,6 +393,7 @@ header.modern-header .cta-button i {
     font-size: 1rem;
     font-weight: 800;
     color: #1e293b;
+    transition: color 0.3s ease;
 }
 
 /* Testimonials Redesign */
