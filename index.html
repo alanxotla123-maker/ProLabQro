@@ -419,19 +419,19 @@
                 <form id="form-cotizacion">
                     <div class="form-group">
                         <label>Nombre Completo</label>
-                        <input type="text" placeholder="Ej. Roberto Garcia" required>
+                        <input type="text" id="quote-name" name="name" placeholder="Ej. Roberto Garcia" required>
                     </div>
                     <div class="form-group">
                         <label>Email</label>
-                        <input type="email" placeholder="ejemplo@gmail.com" required>
+                        <input type="email" id="quote-email" name="email" placeholder="ejemplo@gmail.com" required>
                     </div>
                     <div class="form-group">
                         <label>Teléfono</label>
-                        <input type="tel" placeholder="442 000 0000" required>
+                        <input type="tel" id="quote-phone" name="phone" placeholder="442 000 0000" required>
                     </div>
                     <div class="form-group">
                         <label>Descripción del Requerimiento</label>
-                        <textarea placeholder="¿Qué equipos o insumos necesita?" rows="4" required></textarea>
+                        <textarea id="quote-message" name="message" placeholder="¿Qué equipos o insumos necesita?" rows="4" required></textarea>
                     </div>
                     <div class="form-actions">
                         <button type="submit" class="btn-submit">
@@ -451,6 +451,20 @@
             <div id="modal-reviews-carousel" class="owl-carousel owl-theme">
                 <!-- Se cargará dinámicamente desde reviews.json -->
             </div>
+        </div>
+    </div>
+
+    <!-- Success Modal Content (Hidden) -->
+    <div id="success-modal" class="zoom-anim-dialog mfp-hide">
+        <div class="modal-success-wrapper" style="max-width: 500px; margin: 40px auto; background: #ffffff; padding: 40px; border-radius: 30px; text-align: center; box-shadow: 0 10px 50px rgba(0,0,0,0.15); position: relative;">
+            <div class="success-icon-wrapper" style="width: 80px; height: 80px; background: rgba(44, 176, 220, 0.1); color: #2CB0DC; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px auto; font-size: 2.5rem;">
+                <i class="fa fa-check-circle"></i>
+            </div>
+            <h3 style="font-size: 2rem; font-weight: 800; color: #020617; margin-bottom: 15px; text-transform: uppercase;">¡Solicitud Enviada!</h3>
+            <p id="success-modal-message" style="font-size: 1.1rem; color: #64748b; line-height: 1.6; margin-bottom: 30px;"></p>
+            <button class="btn-submit" onclick="$.magnificPopup.close();" style="margin: 0 auto; display: inline-flex; justify-content: center;">
+                Aceptar
+            </button>
         </div>
     </div>
 
@@ -782,6 +796,63 @@
                         $('.modern-header').removeClass('header-hidden');
                     }
                 }
+            });
+
+            // Form Submit handler
+            $('#form-cotizacion').on('submit', function (e) {
+                e.preventDefault();
+                const $form = $(this);
+                const $submitBtn = $form.find('.btn-submit');
+                const originalBtnText = $submitBtn.html();
+
+                // Desactivar botón y mostrar estado de carga
+                $submitBtn.prop('disabled', true).html('<i class="fa fa-spinner fa-spin"></i> ENVIANDO...');
+
+                $.ajax({
+                    url: 'cotizacion.php',
+                    type: 'POST',
+                    data: $form.serialize(),
+                    dataType: 'json',
+                    success: function (response) {
+                        if (response.status === 'success') {
+                            $form[0].reset();
+                            
+                            // Mostrar mensaje en el modal y abrirlo
+                            $('#success-modal-message').text(response.message);
+                            $.magnificPopup.open({
+                                items: {
+                                    src: '#success-modal'
+                                },
+                                type: 'inline',
+                                fixedContentPos: false,
+                                fixedBgPos: true,
+                                overflowY: 'auto',
+                                closeBtnInside: true,
+                                preloader: false,
+                                midClick: true,
+                                removalDelay: 300,
+                                mainClass: 'my-mfp-zoom-in',
+                                callbacks: {
+                                    open: function () {
+                                        $('.modern-header').addClass('header-hidden');
+                                    },
+                                    close: function () {
+                                        $('.modern-header').removeClass('header-hidden');
+                                    }
+                                }
+                            });
+                        } else {
+                            alert(response.message);
+                        }
+                    },
+                    error: function () {
+                        alert('Hubo un error de conexión al enviar su cotización. Por favor, intente más tarde.');
+                    },
+                    complete: function () {
+                        // Restaurar estado del botón
+                        $submitBtn.prop('disabled', false).html(originalBtnText);
+                    }
+                });
             });
         });
     </script>
