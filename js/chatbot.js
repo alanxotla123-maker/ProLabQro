@@ -159,8 +159,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 } else if (lowerText.includes("laboratorio") || lowerText.includes("hospital") || lowerText.includes("industria") || lowerText.includes("escuela") || lowerText.includes("investigación")) {
                     let target = "laboratorios";
                     if (lowerText.includes("hospital")) target = "hospitales";
-                    if (lowerText.includes("industria")) target = "industria";
-                    if (lowerText.includes("escuela")) target = "escuelas";
+                    if (lowerText.includes("industria") || lowerText.includes("escuela")) target = "escuelas_industria";
                     if (lowerText.includes("investigación")) target = "investigacion";
                     
                     let href = isIndex ? `#sectores` : `index.html?sector=${target}#sectores`;
