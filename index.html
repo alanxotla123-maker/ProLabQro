@@ -36,7 +36,7 @@
     <link rel="stylesheet" href="css/owl.carousel.css" type="text/css">
     <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
-    <link rel="stylesheet" href="css/redesign.css?v=1.4" type="text/css">
+    <link rel="stylesheet" href="css/redesign.css?v=1.7" type="text/css">
     <link rel="stylesheet" href="css/chatbot.css" type="text/css">
     <link rel="icon" href="images/favicon.ico">
 </head>
@@ -200,7 +200,7 @@
                     </div>
                     <div class="sector-item" data-target="escuelas_industria" style="cursor: pointer;">
                         <div class="sector-image-circle">
-                            <img src="images/team/team_pic_3.jpg" alt="Industria y Escuelas">
+                            <img src="images/team/team_pic_2.jpg" alt="Industria y Escuelas">
                         </div>
                         <span style="font-size: 1.3rem; font-weight: 800;">Industria y Escuelas</span>
                     </div>
@@ -261,7 +261,7 @@
                                 </div>
                                 <div class="nav-item" data-sector="escuelas_industria" title="Industria y Escuelas"
                                     style="padding: 0; background: transparent; overflow: hidden;">
-                                    <img src="images/team/team_pic_3.jpg"
+                                    <img src="images/team/team_pic_2.jpg"
                                         style="width: 100%; height: 100%; object-fit: cover;">
                                 </div>
                             </div>
@@ -560,7 +560,8 @@
                         { img: "images/portfolio/Hospitales/Hospital (28).png", name: "Hospital (28)" },
                         { img: "images/portfolio/Hospitales/Hospital (29).png", name: "Hospital (29)" },
                         { img: "images/portfolio/Hospitales/Hospital (30).png", name: "Hospital (30)" },
-                        { img: "images/portfolio/Hospitales/Hospital (31).png", name: "Hospital (31)" }
+                        { img: "images/portfolio/Hospitales/Hospital (31).png", name: "Hospital (31)" },
+                        { img: "images/portfolio/Hospitales/Hospital (32).png", name: "Hospital (32)" }
                     ]
                 },
                 investigacion: {
@@ -573,7 +574,7 @@
                 },
                 escuelas_industria: {
                     title: "Industria y Escuelas",
-                    img: "images/team/team_pic_3.jpg",
+                    img: "images/team/team_pic_2.jpg",
                     description: "Soluciones integrales para el control de calidad y procesos productivos, así como material didáctico y equipo para laboratorios escolares y universitarios.",
                     brands: [
                         { img: "images/portfolio/Escuelas e industria/image copy.png", name: "image copy" },
@@ -657,11 +658,11 @@
                 const brands = data.brands || [];
                 $grid.fadeOut(200, function () {
                     $grid.empty();
-                    // 36 logos → cuadrícula compacta 6×6 (como en Laboratorios)
-                    if (brands.length >= 36) {
-                        $grid.addClass('grid-compact');
+                    // Todos usan grid-compact (mismo tamaño), pero Escuelas usa grid-compact-7 (7 columnas)
+                    if (sectorKey === 'escuelas_industria') {
+                        $grid.addClass('grid-compact-7').removeClass('grid-compact');
                     } else {
-                        $grid.removeClass('grid-compact');
+                        $grid.addClass('grid-compact').removeClass('grid-compact-7');
                     }
                     brands.forEach(function (brand) {
                         $grid.append(`<div class="brand-item"><img src="${brand.img}" alt="${brand.name}" title="${brand.name}"></div>`);
